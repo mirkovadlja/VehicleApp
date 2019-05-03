@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleMakeService } from '../vehicle-make.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { VehicleMakeService } from '../vehicle-make.service';
 export class VehicleMakeComponent implements OnInit {
 
   vehicleMakes: Object;
-  constructor(private service: VehicleMakeService) {}
+  constructor(private service: VehicleMakeService, private router: Router) {}
 
   ngOnInit() {
     this.GetVehicleMakes();
@@ -21,7 +22,9 @@ export class VehicleMakeComponent implements OnInit {
       this.vehicleMakes = data;
     });
   }
-
+  onEditClick(id){
+    this.router.navigate(['/vehicleMakeUpdate/' + id])
+  }
   OnDeleteClick(id){
     this.service.DeleteVehicleMake(id).subscribe(response => {
       alert('Delete success');

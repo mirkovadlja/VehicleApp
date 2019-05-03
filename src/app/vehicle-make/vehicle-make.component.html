@@ -23,7 +23,7 @@
               <th scope="row">{{index}}</th>
               <td>{{ vehicleMake.Name }}</td>
               <td>  
-                <button type="button" class="btn btn-light">Edit</button>
+                <button type="button" class="btn btn-light" (click)="onEditClick(vehicleMake.Id)">Edit</button>
                 <button type="button" class="btn btn-dark" (click)="onDeleteClick(vehicleMake.Id)">Delete</button>
               </td>
             </tr>

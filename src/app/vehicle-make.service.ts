@@ -6,10 +6,17 @@ const httpOptions = {
     'Content-Type':  'application/json'
   })
 };
-export interface VehicleMake {
-  name: string;
-  abrv: string;
+export interface IVehicleMake {
+  Id: number;
+  Name: string;
+  Abrv: string;
 }
+export class VehicleMake implements IVehicleMake {
+  Id: number;
+  Name: string;
+  Abrv: string;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +24,21 @@ export interface VehicleMake {
 export class VehicleMakeService {
 
   constructor(private http: HttpClient) { }
+  
+  GetVehicleMake(id){
+    return this.http.get('http://localhost:8486/api/vehiclemake/get/'+ id);
+ }
 
   GetVehicleMakes(){
      return this.http.get('http://localhost:8486/api/vehiclemake/get');
   }
   CreateVehicleMake(vehicleMake){
-    console.log(vehicleMake);
-    
-    return this.http.post<VehicleMake>('http://localhost:8486/api/vehiclemake/insert', vehicleMake, httpOptions);
+    return this.http.post<IVehicleMake>('http://localhost:8486/api/vehiclemake/insert', vehicleMake, httpOptions);
   }
+  UpdateVehicleMake(vehicleMake){    
+    return this.http.post<IVehicleMake>('http://localhost:8486/api/vehiclemake/update', vehicleMake, httpOptions);
+  }
+  
   DeleteVehicleMake(id) {
     return this.http.get('http://localhost:8486/api/vehiclemake/delete/' + id);
   }
