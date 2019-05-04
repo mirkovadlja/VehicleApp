@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { VehicleMakeService } from '../vehicle-make.service';
+import { VehicleMakeService } from '../shared/vehicle-make.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,7 +23,7 @@ export class VehicleMakeCreateComponent implements OnInit {
     
   }
   onSubmit() {
-    this.service.CreateVehicleMake(this.vehicleMakeForm.value).subscribe(data => {
+    this.service.CreateVehicleMake(this.vehicleMakeForm.value).then(data => {
       console.log(data);
     });
     console.warn(this.vehicleMakeForm.value, );

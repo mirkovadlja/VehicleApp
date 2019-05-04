@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleMakeService, VehicleMake } from '../vehicle-make.service';
+import { VehicleMakeService, VehicleMake } from '../shared/vehicle-make.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -20,11 +20,12 @@ export class VehicleMakeUpdateComponent implements OnInit {
   constructor(private service: VehicleMakeService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    console.log('in oninit');
     this.id = +this.route.snapshot.params['id'];
     this.GetVehicleMake();
   }
   GetVehicleMake(){
-    this.service.GetVehicleMake(this.id).subscribe(data => {
+    this.service.GetVehicleMake(this.id).then(data => {
       this.vehicleMake = data as VehicleMake;
     
       this.vehicleMakeForm.setValue({
@@ -39,11 +40,12 @@ export class VehicleMakeUpdateComponent implements OnInit {
     a.Id= this.id;
     a.Name = this.vehicleMakeForm.value.name;
     a.Abrv = this.vehicleMakeForm.value.abrv;
-    this.service.UpdateVehicleMake(a).subscribe(data => {
+    this.service.UpdateVehicleMake(a).then(data => {
       console.log(data);
+      this.router.navigate(['/vehicleMake'])
     });
     //console.warn(this.vehicleMakeForm.value, );
-    this.router.navigate(['/vehicleMake'])
+    
   }
 }
 
