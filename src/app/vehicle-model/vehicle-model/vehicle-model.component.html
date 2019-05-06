@@ -2,8 +2,26 @@
 <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-      <h1>VehicleMakes</h1>
-      <button type="button" class="btn btn-primary" routerLink="/vehicleModel/create"> Create new </button>
+      <div class="row">
+        <div class="col-4">
+            <h1>VehicleMakes</h1>
+        </div>
+        <div class="col-4">
+          <button type="button" class="btn btn-primary" routerLink="/vehicleModel/create"> Create new </button>   
+        </div>
+        <div class="col-4">      
+          <div class="form-group">
+              <label for="vehicleMakeId">Filter</label>
+              <select class="form-control" (change)="OnFilterChange($event.target.value)">
+                <option value="0">-</option>
+                <option *ngFor="let vehicleMake of vehicleMakes" value={{vehicleMake.Id}} >
+                    {{vehicleMake.Name}}
+                </option>
+            </select>
+            </div>
+          </div> 
+        
+      </div>
     </div>
     <div class="col-3"></div>
   </div>

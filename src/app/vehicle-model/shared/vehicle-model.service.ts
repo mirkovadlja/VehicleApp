@@ -31,9 +31,13 @@ export class VehicleModelService {
   GetVehicleModel(id){
     return this.http.get('http://localhost:8486/api/vehiclemodel/get/'+ id).toPromise();
  }
+ 
+ GetVehicleModelsFiltered(id){
+  return this.http.get('http://localhost:8486/api/vehiclemodel/getall/' + id).toPromise();
+}
 
   GetVehicleModels(){
-     return this.http.get('http://localhost:8486/api/vehiclemodel/get').toPromise();
+     return this.http.get('http://localhost:8486/api/vehiclemodel/getall').toPromise();
   }
   CreateVehicleModel(vehicleModel){
     return this.http.post<IVehicleModel>('http://localhost:8486/api/vehiclemodel/insert', vehicleModel, httpOptions).toPromise();

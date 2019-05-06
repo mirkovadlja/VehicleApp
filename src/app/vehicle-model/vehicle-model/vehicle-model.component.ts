@@ -9,18 +9,32 @@ import { Router, Route } from '@angular/router';
 })
 export class VehicleModelComponent implements OnInit {
   
-  vehicleModels: Object;
-
+  vehicleModels: Object[];
+  vehicleMakes: Object[];
   constructor(private service: VehicleModelService, private router: Router) { }
 
   ngOnInit() {
-    this.GetVehicleModels();
+    this.service.GetVehicleMakes().then(vehicleMakes => {
+      this.vehicleMakes = vehicleMakes as Object[];
+      this.GetVehicleModels();
+    })
+  }
+
+  OnFilterChange(id){
+    console.log(id);
+    if(id == 0){
+      this.GetVehicleModels();
+    }else{
+      this.service.GetVehicleModelsFiltered(id).then(vehicleModels => {
+        this.vehicleModels = vehicleModels as Object[];
+      });
+    }
+    
   }
 
   GetVehicleModels(){
     this.service.GetVehicleModels().then(data => {
-      console.log(data);
-      this.vehicleModels = data;
+      this.vehicleModels = data as Object[];
     });
   }
   OnEditClick(id){
