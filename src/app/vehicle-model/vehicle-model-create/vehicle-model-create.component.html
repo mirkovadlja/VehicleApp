@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form [formGroup]="vehicleModelForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required  formControlName="name"> 
+      </div>
+      <div class="form-group">
+        <label for="abrv">Abrv</label>
+        <input type="text" class="form-control" id="abrv" required formControlName="abrv"> 
+      </div>
+      <div class="form-group">
+        <label for="vehicleMakeId">VehicleMake</label>
+        <select class="form-control" formControlName="vehicleMakeId">
+          <option *ngFor="let vehicleMake of vehicleMakes" value={{vehicleMake.Id}} >
+              {{vehicleMake.Name}}
+          </option>
+      </select>
+      </div>
+      <button type="submit" [disabled]="!vehicleModelForm.valid" class="btn btn-primary" >Create</button>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VehicleMakeComponent } from './vehicle-make-list/vehicle-make.component';
+import { VehicleMakeComponent } from './vehicle-make/vehicle-make.component';
 import { VehicleMakeCreateComponent } from './vehicle-make-create/vehicle-make-create.component';
 import { VehicleMakeUpdateComponent } from './vehicle-make-update/vehicle-make-update.component';
 
 const vehicleMakeRoutes: Routes = [
   { path: 'vehicleMake', component: VehicleMakeComponent},
   { path: 'vehicleMake/update/:id', component: VehicleMakeUpdateComponent},
-  { path: 'vehicleMaked/create', component: VehicleMakeCreateComponent}
+  { path: 'vehicleMake/create', component: VehicleMakeCreateComponent}
 ];
 
 @NgModule({

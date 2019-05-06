@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { VehicleMakeRoutingModule } from '../vehicle-make/vehicle-make-routing.module'
 
-import { VehicleMakeComponent } from './vehicle-make-list/vehicle-make.component';
+import { VehicleMakeComponent } from './vehicle-make/vehicle-make.component';
 import { VehicleMakeCreateComponent } from './vehicle-make-create/vehicle-make-create.component';
 import { VehicleMakeUpdateComponent } from './vehicle-make-update/vehicle-make-update.component';
 

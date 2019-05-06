@@ -9,24 +9,20 @@ import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { VehicleMakeModule } from './vehicle-make/vehicle-make.module';
-
-import {  VehicleModelComponent } from './vehicle-model/vehicle-model.component'
-//import { VehicleMakeComponent } from './vehicle-make/vehicle-make-list/vehicle-make.component'
-//import {VehicleMakeCreateComponent } from './vehicle-make/vehicle-make-create/vehicle-make-create.component'
-//import {VehicleMakeUpdateComponent} from './vehicle-make/vehicle-make-update/vehicle-make-update.component'
+import { VehicleModelModule } from './vehicle-model/vehicle-model.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    VehicleModelComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    VehicleMakeModule
+    VehicleMakeModule,
+    VehicleModelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

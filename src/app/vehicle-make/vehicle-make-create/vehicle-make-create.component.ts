@@ -24,9 +24,8 @@ export class VehicleMakeCreateComponent implements OnInit {
   }
   onSubmit() {
     this.service.CreateVehicleMake(this.vehicleMakeForm.value).then(data => {
-      console.log(data);
+      this.router.navigate(['/vehicleMake'])
     });
-    console.warn(this.vehicleMakeForm.value, );
-    this.router.navigate(['/vehicleMake'])
+    
   }
 }

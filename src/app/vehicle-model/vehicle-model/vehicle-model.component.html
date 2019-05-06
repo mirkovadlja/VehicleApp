@@ -1,0 +1,38 @@
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <h1>VehicleMakes</h1>
+      <button type="button" class="btn btn-primary" routerLink="/vehicleModel/create"> Create new </button>
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Abrv</th>
+                <th scope="col">Name</th>
+                <th scope="col">Make</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let vehicleModel of vehicleModels">
+                <td>{{ vehicleModel.Abrv}}</td>
+                <td>{{ vehicleModel.Name }}</td>
+                <td>{{ vehicleModel.VehicleMake.Name }}</td>
+                <td>  
+                  <button type="button" class="btn btn-light" (click)="OnEditClick(vehicleModel.Id)">Edit</button>
+                  <button type="button" class="btn btn-dark" (click)="OnDeleteClick(vehicleModel.Id)">Delete</button>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+   
+    </div>
+  <div class="col-2"></div>
+  </div>

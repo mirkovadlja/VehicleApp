@@ -31,10 +31,4 @@ export class VehicleMakeComponent implements OnInit {
       this.GetVehicleMakes()
     });
   }
-
-
-
-  
-  
-
 }
